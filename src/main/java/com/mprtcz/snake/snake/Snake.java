@@ -32,6 +32,10 @@ public class Snake {
         snakeNodes.removeLast();
     }
 
+    public void moveSnakeAndIncrement(Integer nextNode){
+        snakeNodes.addFirst(nextNode);
+    }
+
     @Override
     public String toString() {
         return "Snake{" +

@@ -27,7 +27,6 @@ public class App extends Application {
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI.fxml"));
-        System.out.println(getClass().getResource("/"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 1024, 768);

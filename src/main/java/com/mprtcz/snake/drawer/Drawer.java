@@ -11,6 +11,7 @@ import javafx.scene.paint.Color;
 public class Drawer {
     private Canvas gameCanvas;
     private int numberOfColumns = 30;
+
     private int numberOfBasicSquares;
     private int basicSquareSize;
 
@@ -28,7 +29,7 @@ public class Drawer {
         return numberOfBasicSquares / 2;
     }
 
-    public void drawSnake(Snake snake) {
+    public void drawSnake(Snake snake, Integer pointBrick) {
         GraphicsContext graphicsContext = gameCanvas.getGraphicsContext2D();
         graphicsContext.clearRect(0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
         graphicsContext.setStroke(Color.BLACK);
@@ -36,6 +37,7 @@ public class Drawer {
         for (Integer index : snake.getSnakeNodes()) {
             graphicsContext.fillRoundRect(getXCoordinate(index), getYCoordinate(index), basicSquareSize, basicSquareSize, 10, 10);
         }
+        graphicsContext.fillRoundRect(getXCoordinate(pointBrick), getYCoordinate(pointBrick), basicSquareSize, basicSquareSize, 10, 10);
     }
 
     private int getXCoordinate(int index){
@@ -58,5 +60,9 @@ public class Drawer {
 
     public int getNumberOfColumns() {
         return numberOfColumns;
+    }
+
+    public int getNumberOfBasicSquares() {
+        return numberOfBasicSquares;
     }
 }

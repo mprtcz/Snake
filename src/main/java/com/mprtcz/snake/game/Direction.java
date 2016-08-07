@@ -5,7 +5,7 @@ import javafx.scene.input.KeyCode;
 /**
  * Created by mprtcz on 2016-08-07.
  */
-public enum Direction {
+enum Direction {
     UP(KeyCode.UP),
     DOWN(KeyCode.DOWN),
     LEFT(KeyCode.LEFT),

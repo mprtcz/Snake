@@ -41,10 +41,10 @@ public class GameAgent {
         for (int i = 0; i < 500; i++) {
             if(Objects.equals(nextBrick, pointBrick)){
                 snake.moveSnakeAndIncrement(nextBrick);
+                pickRandomBrick();
             } else {
                 snake.moveSnake(nextBrick);
             }
-            pickRandomBrick();
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {

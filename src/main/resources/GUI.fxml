@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mprtcz.snake.Controller">
+   <center>
+      <Canvas fx:id="drawingCanvas" height="303.0" width="389.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#onStartGameButtonClicked" text="Start game" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

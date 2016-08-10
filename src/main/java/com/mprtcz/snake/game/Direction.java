@@ -6,10 +6,10 @@ import javafx.scene.input.KeyCode;
  * Created by mprtcz on 2016-08-07.
  */
 enum Direction {
-    UP(KeyCode.UP),
-    DOWN(KeyCode.DOWN),
-    LEFT(KeyCode.LEFT),
-    RIGHT(KeyCode.RIGHT);
+    UP(KeyCode.W),
+    DOWN(KeyCode.S),
+    LEFT(KeyCode.A),
+    RIGHT(KeyCode.D);
 
     private KeyCode keyCode;
 

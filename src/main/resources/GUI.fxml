@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
@@ -10,6 +11,28 @@
       <Canvas fx:id="drawingCanvas" height="303.0" width="389.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#onStartGameButtonClicked" text="Start game" BorderPane.alignment="CENTER" />
+      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#onStartGameButtonClicked" text="Start game" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin></Button>
    </bottom>
+   <top>
+      <VBox alignment="CENTER" fillWidth="false" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="snakeSpeedLabel" focusTraversable="false" text="Snake Speed" />
+            <Slider fx:id="snakeSpeedSlider" blockIncrement="2.0" focusTraversable="false" max="20.0" min="2.0" onMouseReleased="#onMouseReleasedSlider" value="2.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="150.0" right="150.0" top="10.0" />
+               </BorderPane.margin>
+            </Slider>
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <Label fx:id="pointsLabel" text="Points:" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </right>
 </BorderPane>

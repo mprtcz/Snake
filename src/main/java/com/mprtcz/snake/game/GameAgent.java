@@ -5,6 +5,7 @@ import com.mprtcz.snake.logger.SnakeGameLogger;
 import com.mprtcz.snake.snake.Snake;
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 
 import java.util.Objects;
@@ -27,6 +28,9 @@ public class GameAgent {
     private Integer pointBrick;
     private Direction tempDirection;
     private boolean isGameRunning;
+    private Label pointsLabel;
+    private int points;
+    private int speed;
 
     public GameAgent(Canvas gameCanvas) {
         gameDrawer = new Drawer(gameCanvas);
@@ -38,16 +42,18 @@ public class GameAgent {
     public void play() {
         pickRandomBrick();
         drawSnakeLater();
+
         isGameRunning = true;
         while (isGameRunning) {
             if (Objects.equals(nextBrick, pointBrick)) {
                 snake.moveSnakeAndIncrement(nextBrick);
+                addPoints();
                 pickRandomBrick();
             } else {
                 snake.moveSnake(nextBrick);
             }
             try {
-                Thread.sleep(200);
+                Thread.sleep(1000/speed);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -104,7 +110,7 @@ public class GameAgent {
         }
     }
 
-    private void checkLowerWallColision(){
+    private void checkLowerWallCollision(){
         if(nextBrick > gameDrawer.getNumberOfBasicSquares() - 1) {
             isGameRunning = false;
         }
@@ -123,8 +129,22 @@ public class GameAgent {
     private void checkAllCollisions(){
         checkSnakeCollision();
         checkUpperWallCollision();
-        checkLowerWallColision();
+        checkLowerWallCollision();
         checkSideWallsCollision();
+    }
+
+    public void setSpeed(int speed){
+        this.speed = speed;
+    }
+
+    public void setPointsLabel(Label label){
+        this.pointsLabel = label;
+    }
+
+    private void addPoints(){
+        points += speed;
+        String pointsString = "Points:\n" + String.valueOf(points);
+        Platform.runLater(() -> pointsLabel.setText(pointsString));
     }
 }
 

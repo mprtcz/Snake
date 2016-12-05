@@ -21,22 +21,18 @@ public class App extends Application {
     private static boolean isLogger = false;
 
     @Override
-    public void start(Stage window) throws Exception{
-        if(isLogger) {
+    public void start(Stage window) throws Exception {
+        if (isLogger) {
             SnakeGameLogger.initializeLogger();
         }
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI.fxml"));
         Parent root = loader.load();
-
-        Scene scene = new Scene(root, 1024, 768);
-
+        Scene scene = new Scene(root, 800, 600);
         window.setOnCloseRequest(e -> {
             logger.log(level, "Close Requested.");
             Platform.exit();
             System.exit(0);
         });
-
         window.setTitle("Snake");
         window.setScene(scene);
         window.show();
@@ -44,8 +40,8 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        if(args.length>0){
-            if(args[0].equals("-log")){
+        if (args.length > 0) {
+            if (args[0].equals("-log")) {
                 isLogger = true;
             }
         }

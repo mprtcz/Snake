@@ -1,38 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mprtcz.snake.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fcdca9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mprtcz.snake.Controller">
    <center>
-      <Canvas fx:id="drawingCanvas" height="303.0" width="389.0" BorderPane.alignment="CENTER" />
+      <Canvas fx:id="drawingCanvas" height="272.0" width="324.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#onStartGameButtonClicked" text="Start game" BorderPane.alignment="CENTER">
+      <Button fx:id="startGameButton" mnemonicParsing="false" onAction="#onStartGameButtonClicked" style="-fx-background-color: #bcb39c;" text="Start game" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </BorderPane.margin></Button>
    </bottom>
    <top>
-      <VBox alignment="CENTER" fillWidth="false" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER">
          <children>
-            <Label fx:id="snakeSpeedLabel" focusTraversable="false" text="Snake Speed" />
-            <Slider fx:id="snakeSpeedSlider" blockIncrement="2.0" focusTraversable="false" max="20.0" min="2.0" onMouseReleased="#onMouseReleasedSlider" value="2.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="10.0" left="150.0" right="150.0" top="10.0" />
-               </BorderPane.margin>
-            </Slider>
+            <VBox alignment="CENTER" prefHeight="35.0" prefWidth="206.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="snakeSpeedLabel" focusTraversable="false" text="Snake Speed" />
+                  <Slider fx:id="snakeSpeedSlider" blockIncrement="2.0" focusTraversable="false" max="20.0" min="2.0" onMouseReleased="#onMouseReleasedSlider" style="-fx-background-color: #fcdca9;" value="2.0" />
+               </children>
+            </VBox>
          </children>
-      </VBox>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
    </top>
    <right>
-      <Label fx:id="pointsLabel" text="Points:" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </BorderPane.margin>
-      </Label>
+      <VBox>
+         <children>
+            <Label fx:id="pointsLabel" prefHeight="22.0" prefWidth="124.0" text="Points:">
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <ListView fx:id="pointsListView" prefHeight="248.0" prefWidth="100.0" style="-fx-background-color: #fcdca9;" stylesheets="@listViewStyle.css" BorderPane.alignment="CENTER" />
+            <Label fx:id="meanPointsLabel" />
+         </children>
+      </VBox>
    </right>
+   <left>
+      <HBox prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>

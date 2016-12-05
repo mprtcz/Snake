@@ -1,6 +1,6 @@
 # Snake
 
-A java application implementing a popular Snake game.
+A desktop java application implementing a popular Snake game.
 Use w,s,a,d to move a snake round the drawing field, control the Snake Speed slider to adjust game's speed. 
 With every consumed brick the game increments Points value displayed on the right edge of the screen.
 

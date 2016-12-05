@@ -2,8 +2,7 @@ package com.mprtcz.snake.snake;
 
 import com.mprtcz.snake.logger.SnakeGameLogger;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +13,7 @@ public class Snake {
     private final static Logger logger = Logger.getLogger(SnakeGameLogger.class.getName());
     private Level level = Level.CONFIG;
 
-    private LinkedList<Integer> snakeNodes = new LinkedList<>();
+    private LinkedBlockingDeque<Integer> snakeNodes = new LinkedBlockingDeque<>();
 
     public Snake(int firstNode) {
         snakeNodes.add(firstNode);
@@ -22,7 +21,7 @@ public class Snake {
         snakeNodes.add(firstNode + 2);
     }
 
-    public List<Integer> getSnakeNodes() {
+    public LinkedBlockingDeque<Integer> getSnakeNodes() {
         logger.log(level, "snakeNodes = " + snakeNodes);
         return snakeNodes;
     }

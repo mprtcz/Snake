@@ -11,7 +11,6 @@ import javafx.scene.paint.Color;
 public class Drawer {
     private Canvas gameCanvas;
     private int numberOfColumns = 30;
-
     private int numberOfBasicSquares;
     private int basicSquareSize;
 
@@ -31,27 +30,31 @@ public class Drawer {
 
     public void drawSnake(Snake snake, Integer pointBrick) {
         GraphicsContext graphicsContext = gameCanvas.getGraphicsContext2D();
-        graphicsContext.clearRect(0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
+        graphicsContext.clearRect(
+                0, 0, graphicsContext.getCanvas().getWidth(), graphicsContext.getCanvas().getHeight());
         graphicsContext.setStroke(Color.BLACK);
-        graphicsContext.strokeRect(0, 0, (numberOfColumns * basicSquareSize), (basicSquareSize * numberOfBasicSquares / numberOfColumns));
+        graphicsContext.strokeRect(
+                0, 0, (numberOfColumns * basicSquareSize), (basicSquareSize * numberOfBasicSquares / numberOfColumns));
         for (Integer index : snake.getSnakeNodes()) {
-            graphicsContext.fillRoundRect(getXCoordinate(index), getYCoordinate(index), basicSquareSize, basicSquareSize, 10, 10);
+            graphicsContext.fillRoundRect(
+                    getXCoordinate(index), getYCoordinate(index), basicSquareSize, basicSquareSize, 10, 10);
         }
-        graphicsContext.fillRoundRect(getXCoordinate(pointBrick), getYCoordinate(pointBrick), basicSquareSize, basicSquareSize, 10, 10);
+        graphicsContext.fillRoundRect(
+                getXCoordinate(pointBrick), getYCoordinate(pointBrick), basicSquareSize, basicSquareSize, 10, 10);
     }
 
-    private int getXCoordinate(int index){
+    private int getXCoordinate(int index) {
         int xCoordinate = (index % numberOfColumns) * basicSquareSize;
-        if(index > numberOfBasicSquares -1){
+        if (index > numberOfBasicSquares - 1) {
             return -1;
         } else {
             return xCoordinate;
         }
     }
 
-    private int getYCoordinate(int index){
+    private int getYCoordinate(int index) {
         int yCoordinate = (index / numberOfColumns) * basicSquareSize;
-        if(index > numberOfBasicSquares -1){
+        if (index > numberOfBasicSquares - 1) {
             return -1;
         } else {
             return yCoordinate;

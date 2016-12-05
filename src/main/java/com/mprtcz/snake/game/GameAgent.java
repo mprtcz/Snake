@@ -27,7 +27,7 @@ public class GameAgent {
     private Integer nextBrick;
     private Integer pointBrick;
     private Direction tempDirection;
-    private boolean isGameRunning;
+    public boolean isGameRunning;
     private Label pointsLabel;
     private int points;
     private int speed;
@@ -53,7 +53,7 @@ public class GameAgent {
                 snake.moveSnake(nextBrick);
             }
             try {
-                Thread.sleep(1000/speed);
+                Thread.sleep(1000 / speed);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -74,7 +74,7 @@ public class GameAgent {
     }
 
     private void calculateNextBrick() {
-        Integer firstNode = snake.getSnakeNodes().get(0);
+        Integer firstNode = snake.getSnakeNodes().getFirst();
         if (direction == Direction.LEFT) {
             nextBrick = firstNode - 1;
         } else if (direction == Direction.RIGHT) {
@@ -84,7 +84,7 @@ public class GameAgent {
         } else if (direction == Direction.UP) {
             nextBrick = firstNode - gameDrawer.getNumberOfColumns();
         } else {
-            System.out.println("Unrecognized direction!");
+            logger.log(level, "Unrecognized direction!");
         }
     }
 
@@ -92,7 +92,7 @@ public class GameAgent {
         Random random = new Random();
         Integer pickedIndex = random.nextInt(gameDrawer.getNumberOfBasicSquares() - 1);
         if (snake.getSnakeNodes().contains(pickedIndex)) {
-            System.out.println("Snake " + snake.toString() + " contains " + pickedIndex);
+            logger.log(level, "Snake " + snake.toString() + " contains " + pickedIndex);
             pickRandomBrick();
         }
         pointBrick = pickedIndex;
@@ -104,47 +104,55 @@ public class GameAgent {
         }
     }
 
-    private void checkUpperWallCollision(){
-        if(nextBrick < 0){
+    private void checkUpperWallCollision() {
+        if (nextBrick < 0) {
             isGameRunning = false;
         }
     }
 
-    private void checkLowerWallCollision(){
-        if(nextBrick > gameDrawer.getNumberOfBasicSquares() - 1) {
+    private void checkLowerWallCollision() {
+        if (nextBrick > gameDrawer.getNumberOfBasicSquares() - 1) {
             isGameRunning = false;
         }
     }
 
-    private void checkSideWallsCollision(){
-        if(direction == Direction.LEFT || direction == Direction.RIGHT) {
-            int nextBrickColumn = nextBrick%gameDrawer.getNumberOfColumns();
-            int firstNodeColumn = snake.getSnakeNodes().get(0)%gameDrawer.getNumberOfColumns();
+    private void checkSideWallsCollision() {
+        if (direction == Direction.LEFT || direction == Direction.RIGHT) {
+            int nextBrickColumn = nextBrick % gameDrawer.getNumberOfColumns();
+            int firstNodeColumn = snake.getSnakeNodes().getFirst() % gameDrawer.getNumberOfColumns();
             if (Math.abs(firstNodeColumn - nextBrickColumn) > 1) {
                 isGameRunning = false;
             }
         }
     }
 
-    private void checkAllCollisions(){
+    private void checkAllCollisions() {
         checkSnakeCollision();
         checkUpperWallCollision();
         checkLowerWallCollision();
         checkSideWallsCollision();
     }
 
-    public void setSpeed(int speed){
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public void setPointsLabel(Label label){
+    public void setPointsLabel(Label label) {
         this.pointsLabel = label;
     }
 
-    private void addPoints(){
+    private void addPoints() {
         points += speed;
-        String pointsString = "Points:\n" + String.valueOf(points);
+        String pointsString = "Points: " + String.valueOf(points);
         Platform.runLater(() -> pointsLabel.setText(pointsString));
+    }
+
+    public void terminateGame() {
+        this.isGameRunning = false;
+    }
+
+    public int getPoints() {
+        return points;
     }
 }
 

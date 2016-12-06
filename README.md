@@ -5,12 +5,13 @@ A desktop java application implementing a popular Snake game.
 
 ![sampleOutput](https://sc-cdn.scaleengine.net/i/554964ca61d3ff3d4f7e9cc3f214a5a93.png)
 
-Use `W`,`S`,`A`,`D` keyboard buttons to move a snake on the drawing field, up, down, left, right respectively.
+Use `W` | `S` | `A` | `D` keyboard buttons to move a snake on the drawing field, up, down, left, right respectively.
  
 Control the Snake Speed slider to adjust game's speed. 
-With every consumed brick the game increments Points value displayed on the right edge of the screen. Amount of points is correlated linearly with the snake's current speed.
 
-Under the points label, there is a list which stores all games' results which took place during the session.
+With every consumed brick the game increments Points value displayed on the right edge of the screen as well as snake's length. Amount of points is correlated linearly with the snake's current speed.
+
+Under the `Points` label, there is a list which stores all games' results which took place during the session.
 Beneath, there is a label informing the user about a mean amount of points calculated from all the games the user played since the start of the application.
 
 Current game can be stopped by pressing `Stop Game` button, or by the snake's collision with the wall or the snake itself.

@@ -3,7 +3,7 @@
 A desktop java application implementing a popular Snake game.
 
 
-![sampleOutput](https://sc-cdn.scaleengine.net/i/554964ca61d3ff3d4f7e9cc3f214a5a93.png)
+![sampleOutput](https://sc-cdn.scaleengine.net/i/5f9ddd3ea23dc1353f17d45281775c19.png)
 
 Use `W` | `S` | `A` | `D` keyboard buttons to move a snake on the drawing field, up, down, left, right respectively.
  
@@ -18,7 +18,7 @@ Current game can be stopped by pressing `Stop Game` button, or by the snake's co
 
 The application's gameplay:
 
-![sampleOutput](https://media.giphy.com/media/3oriNXLE0PBI5AguRi/source.gif)
+![sampleOutput](https://media.giphy.com/media/l0IxYQixxI0Sa8WXK/giphy.gif)
 
 ---
 

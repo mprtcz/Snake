@@ -5,7 +5,7 @@ A desktop java application implementing a popular Snake game.
 
 ![sampleOutput](https://sc-cdn.scaleengine.net/i/5f9ddd3ea23dc1353f17d45281775c19.png)
 
-Use | `W` | `S` | `A` | `D`| keyboard buttons to move a snake on the drawing field, up, down, left, right respectively.
+Use  `W`  `S`  `A`  `D` keyboard buttons to move a snake on the drawing field, up, down, left, right respectively.
  
 Control the Snake Speed slider to adjust game's speed. 
 
